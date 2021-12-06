@@ -1,7 +1,7 @@
 <template>
 <div class="wyr">
 
-<h2>Choose 1</h2>
+<h2>Choose one</h2>
 <h3>{{ question }}</h3>
 
 <input
@@ -9,7 +9,7 @@
     v-bind:value="answer1" v-on:change="choiceMade">
 <label>{{ answer1 }}</label>
 
-<input
+<input  
     type="radio" v-model="choice"
     v-bind:value="answer2" v-on:change="choiceMade">
     
@@ -37,7 +37,7 @@ export default {
     },
     methods: {
     choiceMade() {
-        this.$emit('answer-changed',this.choice)
+        this.$emit('user-chose',this.choice)
         }
     }
 }

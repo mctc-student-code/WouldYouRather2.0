@@ -6,15 +6,27 @@
   <would-you-rather 
     v-for="(question) in questions"
     v-bind:key="question.id" 
-    v-bind:question="question.question">
+    v-bind:question="question.question"
+    v-bind:answer1="question.question"
+    v-bind:answer2="question.question"
+    v-on:user-chose="userChose">
   </would-you-rather>
+  
+<h2 class=YouWouldRather>You would rather</h2>
+
+<ul id="usersChoices">
+<li v-for="(usersChoice) in usersChoices">
+  {{ usersChoice }}
+</li>
+</ul>
+
+
+
+
 
 </div>
 
 </template>
-
-
-
 
 <script>
 import WouldYouRather from './components/WouldYouRather.vue'
@@ -41,11 +53,19 @@ export default {
           question: 'Would you rather swim in Jell-O or swim in Nutella?',
           answer1: 'Jell-o',
           answer2: 'Nutella'
-          }
-        ]
+          }],
+
+          usersChoices: []
       }
+    },
+    methods: {
+      userChose(usersChoice) {
+        if (this.usersChoices.includes(usersChoice)) {
+          return
+          } else {
+            this.usersChoices.push(usersChoice)
+      }}}
     }
-}
 
 </script>
 
