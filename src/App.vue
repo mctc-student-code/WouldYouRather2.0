@@ -7,16 +7,16 @@
     v-for="(question) in questions"
     v-bind:key="question.id" 
     v-bind:question="question.question"
-    v-bind:answer1="question.question"
-    v-bind:answer2="question.question"
+    v-bind:answer1="question.answer1"
+    v-bind:answer2="question.answer2"
     v-on:user-chose="userChose">
   </would-you-rather>
   
-<h2 class=YouWouldRather>You would rather</h2>
+<p id=YouWouldRather>You would rather</p>
 
 <ul id="usersChoices">
-<li v-for="(usersChoice) in usersChoices">
-  {{ usersChoice }}
+<li v-for="(choice) in usersChoices">
+  {{ choice }}
 </li>
 </ul>
 
@@ -40,7 +40,7 @@ export default {
       return {
         questions: [
           {id: 0,
-          question1: 'Would you rather be a robot or a cyborg?',
+          question: 'Would you rather be a robot or a cyborg?',
           answer1: 'Robot',
           answer2: 'Cyborg',
           },
@@ -59,12 +59,12 @@ export default {
       }
     },
     methods: {
-      userChose(usersChoice) {
-        if (this.usersChoices.includes(usersChoice)) {
-          return
-          } else {
-            this.usersChoices.push(usersChoice)
-      }}}
+      userChose(choice) {
+        // if (this.usersChoices.includes(choice)) {
+        //   return
+        //   } else {
+            this.usersChoices.push(choice)
+      }}
     }
 
 </script>
