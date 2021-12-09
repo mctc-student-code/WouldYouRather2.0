@@ -6,6 +6,7 @@
 			v-for="question in questions"
 			v-bind:key="question.id"
 			v-bind:question="question.question"
+			v-bind:id="question.id"
 			v-bind:answer1="question.answer1"
 			v-bind:answer2="question.answer2"
 			v-on:user-chose="userChose"
@@ -58,8 +59,8 @@ export default {
 		}
 	},
 	methods: {
-		userChose(choice) {
-			this.usersChoices.push(choice)
+		userChose(choice, id) {
+			this.usersChoices[id] = choice
 		},
 	},
 }

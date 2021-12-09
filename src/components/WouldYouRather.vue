@@ -24,6 +24,7 @@ export default {
 	name: 'WouldYouRather',
 
 	props: {
+		id: Number,
 		question: String,
 		answer1: String,
 		answer2: String,
@@ -35,7 +36,7 @@ export default {
 	},
 	methods: {
 		choiceMade() {
-			this.$emit('user-chose', this.choice)
+			this.$emit('user-chose', this.choice, this.id)
 		},
 	},
 }
